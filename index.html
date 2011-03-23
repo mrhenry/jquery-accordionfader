@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--<meta http-equiv="Content-Language" content="nl-BE"> Only use if site is in non US english -->
+  <!--<meta name="Language" content="english"> Only use if site is in non US english -->
+  <meta charset="utf-8" />
+  <meta name="description" content="">
+
+  <title>jQuery Accordionfader</title>
+  
+  <link href="screen.css" type="text/css" rel="stylesheet" media="screen">
+  
+  <script src="http://www.google.com/jsapi?key="></script>
+  <script type="text/javascript">
+    google.load("jquery", "1.5");
+    google.load("jqueryui", "1.8");
+  </script>
+  
+  <script src="jquery-accordionfader.js"></script>
+  <script>
+    $(function(){
+      $('.accordionfader').accordionfader();
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="accordionfader">
+  <ul>
+    <li class="one active"><a href="">one</a></li>
+    <li class="two"><a href="">two</a></li>
+    <li class="three"><a href="">three</a></li>
+    <li class="four"><a href="">four</a></li>
+  </ul>
+</div>
+
+</body>
+</html>

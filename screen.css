@@ -1,0 +1,76 @@
+body {
+  padding: 50px;
+  font-family: Helvetica, Arial, sans-serif; background: #EEE; 
+}
+
+.accordionfader {
+  margin: 0 auto; 
+  border: 5px solid #FFF; 
+  border-top: none; 
+  border-bottom: none; 
+  width: 600px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 2px #000000;
+  -moz-box-shadow: 0px 0px 2px #000000;
+  box-shadow: 0px 0px 2px #000000;
+}
+
+.accordionfader ul { 
+  margin: 0;
+  padding: 0; 
+  width: 620px;
+  height: 245px; 
+  list-style: none; 
+  overflow: hidden;
+  position: relative;
+
+}
+
+.accordionfader li { 
+  float: left; 
+  background-image: url('images/sprite-accordion.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.accordionfader li.one {
+  background-position: center 0;
+}
+
+.accordionfader li.two {
+  background-position: center -246px;
+}
+
+.accordionfader li.three {
+  background-position: center -492px;
+}
+
+.accordionfader li.four {
+  background-position: center -738px;
+}
+
+.accordionfader li a { 
+  display: block; 
+  width: 225px; 
+  height: 245px; 
+  text-indent: -8888px;
+  background-image: url('images/sprite-accordion-nl.png');
+  background-repeat: no-repeat;
+  background-repeat: 0 0;
+}
+
+.accordionfader li.one a {
+  background-position: 5% 0;
+}
+
+.accordionfader li.two a {
+  background-position: 20% -246px;
+}
+
+.accordionfader li.three a {
+  background-position: 20% -492px;
+}
+
+.accordionfader li.four a {
+  background-position: 20% -738px;
+}
