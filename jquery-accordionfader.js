@@ -23,7 +23,7 @@
   _init = function(ctx){
     
     var ctx_width = ctx.width();
-    $('li a', ctx).width(ctx_width / 4);
+    $('li a', ctx).width(ctx_width / $('li', ctx).length);
 
     // Events
     $('li', ctx).hover(
@@ -43,7 +43,7 @@
     $('li, li a', ctx).stop(true);
     target.addClass('hover');
     $('a', ctx).not($('a', target)).animate({
-      "width": (ctx.width() - opts.max_width) / 3
+      "width": (ctx.width() - opts.max_width) / (($('li', ctx).length) - 1)
     });
     $('a', target).animate({
       "width": opts.max_width
@@ -57,7 +57,7 @@
     $('li, li a', ctx).stop(true);
     target.removeClass('hover');
     $('li a', ctx).animate({
-      "width": ctx.width() / 4
+      "width": ctx.width() / $('li', ctx).length
     });
 
   };
@@ -84,7 +84,7 @@
   
   // Default options
   $.fn.accordionfader.defaults = {
-    max_width: 225
+    max_width: 200
   };
   
   

@@ -3,6 +3,22 @@ body {
   font-family: Helvetica, Arial, sans-serif; background: #EEE; 
 }
 
+footer {
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #DD3716;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+
+/* Accordionfader */
 .accordionfader {
   margin: 0 auto; 
   border: 5px solid #FFF; 
