@@ -25,9 +25,10 @@
     var ctx_width = ctx.width();
     
     // Init state
-    if ($(opts.active_class).length > 0) {
-      $('a', ctx).not($('a', $(opts.active_class).first())).width((ctx.width() - opts.max_width) / (($('li', ctx).length) - 1));
-      $('a', opts.active_class).first().width(opts.max_width);
+    if ($(opts.active_class, ctx).length > 0) {
+      var target = $(opts.active_class, ctx).first();
+      $('a', ctx).not($('a', target)).width((ctx.width() - opts.max_width) / (($('li', ctx).length) - 1));
+      $('a', target).width(opts.max_width);
     } else {
       $('li a', ctx).width(ctx_width / $('li', ctx).length);
     }
@@ -64,8 +65,8 @@
     $('li, li a', ctx).stop(true);
     target.removeClass('hover');
     
-    if ($(opts.active_class).length > 0) {
-      _hoverIn(ctx, $(opts.active_class).first());
+    if ($(opts.active_class, ctx).length > 0) {
+      _hoverIn(ctx, $(opts.active_class, ctx).first());
     } else {
       $('li a', ctx).animate({
         "width": ctx.width() / $('li', ctx).length
