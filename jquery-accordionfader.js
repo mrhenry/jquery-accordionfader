@@ -21,10 +21,17 @@
    * Private
    */
   _init = function(ctx){
-    
+    var opts      = ctx.data('af_opts');
     var ctx_width = ctx.width();
-    $('li a', ctx).width(ctx_width / $('li', ctx).length);
-
+    
+    // Init state
+    if ($(opts.active_class).length > 0) {
+      $('a', ctx).not($('a', $(opts.active_class).first())).width((ctx.width() - opts.max_width) / (($('li', ctx).length) - 1));
+      $('a', opts.active_class).first().width(opts.max_width);
+    } else {
+      $('li a', ctx).width(ctx_width / $('li', ctx).length);
+    }
+    
     // Events
     $('li', ctx).hover(
       function(){
@@ -56,9 +63,14 @@
     
     $('li, li a', ctx).stop(true);
     target.removeClass('hover');
-    $('li a', ctx).animate({
-      "width": ctx.width() / $('li', ctx).length
-    });
+    
+    if ($(opts.active_class).length > 0) {
+      _hoverIn(ctx, $(opts.active_class).first());
+    } else {
+      $('li a', ctx).animate({
+        "width": ctx.width() / $('li', ctx).length
+      });
+    }
 
   };
   
@@ -69,7 +81,7 @@
   $.fn.accordionfader = function(options){
     
     return $(this).each(function(){
-      var opts = options ? $.extend(opts, $.fn.accordionfader.options, options) : $.fn.accordionfader.defaults;
+      var opts = options ? $.extend(opts, $.fn.accordionfader.defaults, options) : $.fn.accordionfader.defaults;
       ctx      = $(this);
       
       // Attach opts to element
@@ -84,7 +96,8 @@
   
   // Default options
   $.fn.accordionfader.defaults = {
-    max_width: 200
+    max_width: 200,
+    active_class: ".active"
   };
   
   
